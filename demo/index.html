@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>mm-action-button demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../mm-action-button.html">
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles"></style>
+  </custom-style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Basic mm-action-button demo</h3>
+    <button>Toggle Action Button</button>
+    <demo-snippet>
+      <template>
+        <mm-action-button loading="false"></mm-action-button>
+      </template>
+    </demo-snippet>
+  </div>
+  <script>
+    (() => {
+      'use strict';
+      let loading = "false";
+      document.addEventListener('click', (e) => {
+        if(!e.target.matches('button')) return;
+        e.preventDefault();
+        loading = loading === "false" ? "true" : "false"; 
+        document.querySelector('mm-action-button').setAttribute('loading', loading);
+      }, false)
+    })();
+
+</script>
+</body>
+
+</html>
